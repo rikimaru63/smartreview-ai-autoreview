@@ -1,0 +1,12 @@
+{
+  "installDependencies": true,
+  "startCommand": "npm run dev:all",
+  "env": {
+    "NODE_ENV": "development",
+    "VITE_API_URL": "http://localhost:8000"
+  },
+  "compileTrigger": "save",
+  "devServer": {
+    "port": 3000
+  }
+}

@@ -1,0 +1,22 @@
+run = "bash start.sh"
+
+[env]
+VIRTUAL_ENV = "/home/runner/${REPL_SLUG}/venv"
+PATH = "${VIRTUAL_ENV}/bin"
+
+[nix]
+channel = "stable-22_11"
+
+[packager]
+language = "python3"
+
+[[ports]]
+localPort = 3000
+externalPort = 80
+
+[[ports]]
+localPort = 8000
+externalPort = 8000
+
+[deployment]
+run = ["sh", "-c", "bash start.sh"]

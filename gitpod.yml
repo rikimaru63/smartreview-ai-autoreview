@@ -1,0 +1,41 @@
+image: gitpod/workspace-python-3.11-node
+
+tasks:
+  - name: Backend Setup
+    init: |
+      cd backend
+      python -m venv venv
+      source venv/bin/activate
+      pip install -r requirements.txt
+      cp .env.example .env
+    command: |
+      cd backend
+      source venv/bin/activate
+      python app/main.py
+    openMode: split-left
+
+  - name: Frontend Setup
+    init: |
+      cd frontend
+      npm install
+      echo "VITE_API_URL=http://localhost:8000" > .env
+    command: |
+      cd frontend
+      npm run dev
+    openMode: split-right
+
+ports:
+  - port: 3000
+    onOpen: open-preview
+    visibility: public
+  - port: 8000
+    onOpen: ignore
+    visibility: public
+
+vscode:
+  extensions:
+    - ms-python.python
+    - ms-python.vscode-pylance
+    - dbaeumer.vscode-eslint
+    - esbenp.prettier-vscode
+    - bradlc.vscode-tailwindcss

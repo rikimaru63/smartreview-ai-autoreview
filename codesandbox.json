@@ -1,0 +1,29 @@
+{
+  "container": {
+    "node": "18",
+    "python": "3.11"
+  },
+  "preview": [
+    {
+      "views": [
+        {
+          "id": "codesandbox.browser",
+          "options": {
+            "port": 3000
+          }
+        }
+      ]
+    }
+  ],
+  "tasks": {
+    "install": {
+      "name": "Install Dependencies",
+      "command": "cd frontend && npm install && cd ../backend && pip install -r requirements.txt"
+    },
+    "dev": {
+      "name": "Start Development",
+      "command": "bash start.sh",
+      "runAtStart": true
+    }
+  }
+}
